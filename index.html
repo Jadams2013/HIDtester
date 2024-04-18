@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" ></meta>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" ></meta>
+    <meta name="description" content="A site for testing input devices like mice, keybaords, and gamepads" ></meta>
+	<title>Input Tester</title>
+	<link rel="stylesheet" href="style.css" ></meta>
+</head>
+<body>
+	<a id="top"></a>
+	<div class="sticky">
+		<header class="sticky">
+			<h1>Input Tester</h1>
+		</header>
+		<div class="navbar">
+			<div class="dropdown">
+				<a class="dropbtn">☰</a>
+			    <div class="dropdown-content">
+					<a href="../index.html">Portfolio Home</a>
+					<a href="#top" onclick="clearKeys()">Reset page</a>
+					<a onclick="swapMode(this)">Swap to Light Mode</a>
+				</div>
+			</div>
+		</div>
+	</div>
+		<div>
+			<h3>Last input</h3>
+			<p><span id="display">---</span></p>
+			<hr>
+		</div>
+	<h3>Keyboard</h3>
+	<p id="keyboardNote">Press any key to begin</p>
+	<div id="keyboard" hidden>
+		<div id="mainKeys" hidden>
+			<div class="keyRow">
+				<div data-key="Escape" class="key">Esc</div>
+				<div data-key="F1" class="key override">F1</div>
+				<div data-key="F2" class="key override">F2</div>
+				<div data-key="F3" class="key override">F3</div>
+				<div data-key="F4" class="key override">F4</div>
+				<div data-key="F5" class="key override">F5</div>
+				<div data-key="F6" class="key override">F6</div>
+				<div data-key="F7" class="key override">F7</div>
+				<div data-key="F8" class="key override">F8</div>
+				<div data-key="F9" class="key override">F9</div>
+				<div data-key="F10" class="key override">F10</div>
+				<div data-key="F11" class="key override">F11</div>
+				<div data-key="F12" class="key override">F12</div>
+			</div>
+			<br>
+			<div class="keyRow">
+				<div data-key="Backquote" class="key">~</div>
+				<div data-key="Digit1" class="key">1</div>
+				<div data-key="Digit2" class="key">2</div>
+				<div data-key="Digit3" class="key">3</div>
+				<div data-key="Digit4" class="key">4</div>
+				<div data-key="Digit5" class="key">5</div>
+				<div data-key="Digit6" class="key">6</div>
+				<div data-key="Digit7" class="key">7</div>
+				<div data-key="Digit8" class="key">8</div>
+				<div data-key="Digit9" class="key">9</div>
+				<div data-key="Digit0" class="key">0</div>
+				<div data-key="Minus" class="key">-</div>
+				<div data-key="Equal" class="key">+</div>
+				<div data-key="Backspace" class="key">Backspace</div>
+			</div>
+			<div class="keyRow">
+				<div data-key="Tab" class="key override">Tab</div>
+				<div data-key="KeyQ" class="key">Q</div>
+				<div data-key="KeyW" class="key">W</div>
+				<div data-key="KeyE" class="key">E</div>
+				<div data-key="KeyR" class="key">R</div>
+				<div data-key="KeyT" class="key">T</div>
+				<div data-key="KeyY" class="key">Y</div>
+				<div data-key="KeyU" class="key">U</div>
+				<div data-key="KeyI" class="key">I</div>
+				<div data-key="KeyO" class="key">O</div>
+				<div data-key="KeyP" class="key">P</div>
+				<div data-key="BracketLeft" class="key">{</div>
+				<div data-key="BracketRight" class="key">}</div>
+				<div data-key="Backslash" class="key">\</div>
+			</div>
+			<div class="keyRow">
+				<div data-key="CapsLock" class="medium key">Caps</div>
+				<div data-key="KeyA" class="key">A</div>
+				<div data-key="KeyS" class="key">S</div>
+				<div data-key="KeyD" class="key">D</div>
+				<div data-key="KeyF" class="key">F</div>
+				<div data-key="KeyG" class="key">G</div>
+				<div data-key="KeyH" class="key">H</div>
+				<div data-key="KeyJ" class="key">J</div>
+				<div data-key="KeyK" class="key">K</div>
+				<div data-key="KeyL" class="key">L</div>
+				<div data-key="Semicolon" class="key">;</div>
+				<div data-key="Quote" class="key override">'</div>
+				<div data-key="Enter" class="bigger key">Enter</div>
+			</div>
+			<div class="keyRow">
+				<div data-key="ShiftLeft" class="bigger key">Shift</div>
+				<div data-key="KeyZ" class="key">Z</div>
+				<div data-key="KeyX" class="key">X</div>
+				<div data-key="KeyC" class="key">C</div>
+				<div data-key="KeyV" class="key">V</div>
+				<div data-key="KeyB" class="key">B</div>
+				<div data-key="KeyN" class="key">N</div>
+				<div data-key="KeyM" class="key">M</div>
+				<div data-key="Comma" class="key">,</div>
+				<div data-key="Period" class="key">.</div>
+				<div data-key="Slash" class="key override">/</div>
+				<div data-key="ShiftRight" class="bigger key">Shift</div>
+			</div>
+			<div class="keyRow">
+				<div data-key="ControlLeft" class="medium key">Ctrl</div>
+				<div data-key="OSLeft" class="medium key">Win</div>
+				<div data-key="AltLeft" class="medium key override">Alt</div>
+				<div data-key="Space" class="key override" id="Space">Spacebar</div>
+				<div data-key="AltRight" class="medium key override">Alt</div>
+				<div data-key="ContextMenu" class="medium key override">Sel</div>
+				<div data-key="ControlRight" class="medium key">Ctrl</div> 
+			</div><br>
+		</div>
+		<div id="navKeys" hidden>
+			<div class="keyRow">
+				<!-- <div data-key="0" class="key override">Print</div> can't overide? and doesn't have an event.code?-->
+				<div data-key="ScrollLock" class="key">Scroll Lock</div>
+				<div data-key="Pause" class="key override">Pause</div>
+			</div><br>
+			<div class="keyRow">
+				<div data-key="Insert" class="key">Insert</div>
+				<div data-key="Home" class="key override">Home</div>
+				<div data-key="PageUp" class="key override">Pg Up</div>
+			</div>
+			<div class="keyRow">
+				<div data-key="Delete" class="key">Delete</div>
+				<div data-key="End" class="key override">End</div>
+				<div data-key="PageDown" class="key override">Pg Dwn</div>
+			</div><br>
+			<div class="keyRow">
+				<div data-key="ArrowUp" class="key override">↑</div>
+			</div>
+			<div class="keyRow">
+				<div data-key="ArrowLeft" class="key">←</div>
+				<div data-key="ArrowDown" class="key override">↓</div>
+				<div data-key="ArrowRight" class="key">→</div>
+			</div>
+		</div><br>
+		<div id="numpad" hidden><br><br> 
+			<div class="keyRow">
+				<div data-key="NumLock" class="key">Num</div>
+				<div data-key="NumpadDivide" class="key override">/</div>
+				<div data-key="NumpadMultiply" class="key">*</div>
+				<div data-key="NumpadSubtract" class="key">-</div> 
+			</div>
+			<div class="keyRow">
+				<div data-key="Numpad7" class="key override">7</div>
+				<div data-key="Numpad8" class="key override">8</div>
+				<div data-key="Numpad9" class="key override">9</div>
+				<div data-key="NumpadAdd" class="key">+</div> 
+			</div>
+			<div class="keyRow">
+				<div data-key="Numpad4" class="key override">4</div>
+				<div data-key="Numpad5" class="key override">5</div>
+				<div data-key="Numpad6" class="key override">6</div>
+			</div>
+			<div class="keyRow">
+				<div data-key="Numpad1" class="key override">1</div>
+				<div data-key="Numpad2" class="key override">2</div>
+				<div data-key="Numpad3" class="key override">3</div>
+				<div data-key="NumpadEnter" class="key">Enter</div> 
+			</div>
+			<div class="keyRow">
+				<div data-key="Numpad0" class="bigger key">0</div>
+				<div data-key="NumpadDecimal" class="key">.</div>
+			</div>
+			
+		</div>
+	</div>
+	<hr>
+	<h3>Mouse</h3>
+	<p id="mouseNote">Press any key to begin</p>
+	<div id="mouse" hidden>
+		<div id="mouseSub" hidden>
+			<div class="keyRow">
+				<div data-key="Mouse0" class="key">left Click</div>
+				<div data-key="Mouse2" class="key">Right Click</div>
+			</div>
+			<div class="keyRow">
+				<div data-key="MouseWheelUp" class="key">Scroll Up</div>
+			</div>
+			<div class="keyRow">
+				<div data-key="Mouse1" class="key">Scroll button</div>
+			</div>
+			<div class="keyRow">
+				<div data-key="MouseWheelDown" class="key">Scroll Down</div>
+			</div>
+			<!-- <div class="keyRow">
+				<div data-key="Mouse3" class="key override">Forward</div>
+				<div data-key="Mouse4" class="key override">Back</div>
+			</div> how to override the back and forward mouse buttons? -->
+			<br>
+		</div>
+	</div>
+	<hr>
+	<h3>Gamepad</h3>
+	<p id="gamepadNote">Press any key to begin</p>
+	<div id="0Gamepad" hidden>
+		<div id="0GamepadSub" class="gamepad" hidden>
+			<div class="leftTriggers">
+				<div data-key="0Gamepad6" class="key">L2 (button 6)</div><br>
+				<div data-key="0Gamepad4" class="key">L1 (button 4)</div>
+			</div>
+			<div class="dpad">
+				<div data-key="0Gamepad12" class="key override">↑ (12)</div> <br>
+				<div data-key="0Gamepad15" class="key">← (15)</div>
+				<div data-key="0Gamepad14" class="key">→ (14)</div> <br>
+				<div data-key="0Gamepad13" class="key override">↓ (13)</div>
+			</div>
+			<div class="joystick">
+				<div data-key="0Gamepad10" class="key">L3 (10)</div>
+			</div>
+			<div class="menuButtons">
+				<div data-key="0Gamepad8" class="key">Select</div>
+				<div data-key="0Gamepad9" class="key">Start</div>
+			</div>
+			<div class="joystick">
+				<div data-key="0Gamepad11" class="key">R3 (11)</div>
+			</div>
+			<div class="buttons">
+				<div data-key="0Gamepad3" class="key override">Y (3)</div> <br>
+				<div data-key="0Gamepad2" class="key">X (2)</div>
+				<div data-key="0Gamepad1" class="key">B (1)</div> <br>
+				<div data-key="0Gamepad0" class="key override">A (0)</div>
+			</div>
+			<div class="rightTriggers">
+				<div data-key="0Gamepad7" class="key">R2 (button 7)</div> <br>
+				<div data-key="0Gamepad5" class="key">R1 (button 5)</div>
+			</div>
+		</div>
+	</div> <br><br>
+	<div id="1Gamepad" hidden>
+		<div id="1GamepadSub" class="gamepad" hidden>
+			<div class="leftTriggers">
+				<div data-key="1Gamepad6" class="key">L2 (button 6)</div><br>
+				<div data-key="1Gamepad4" class="key">L1 (button 4)</div>
+			</div>
+			<div class="dpad">
+				<div data-key="1Gamepad12" class="key override">↑ (12)</div> <br>
+				<div data-key="1Gamepad15" class="key">← (15)</div>
+				<div data-key="1Gamepad14" class="key">→ (14)</div> <br>
+				<div data-key="1Gamepad13" class="key override">↓ (13)</div>
+			</div>
+			<div class="joystick">
+				<div data-key="1Gamepad10" class="key">L3 (10)</div>
+			</div>
+			<div class="menuButtons">
+				<div data-key="1Gamepad8" class="key">Select</div>
+				<div data-key="1Gamepad9" class="key">Start</div>
+			</div>
+			<div class="joystick">
+				<div data-key="1Gamepad11" class="key">R3 (11)</div>
+			</div>
+			<div class="buttons">
+				<div data-key="1Gamepad3" class="key override">Y (3)</div> <br>
+				<div data-key="1Gamepad2" class="key">X (2)</div>
+				<div data-key="1Gamepad1" class="key">B (1)</div> <br>
+				<div data-key="1Gamepad0" class="key override">A (0)</div>
+			</div>
+			<div class="rightTriggers">
+				<div data-key="1Gamepad7" class="key">R2 (button 7)</div> <br>
+				<div data-key="1Gamepad5" class="key">R1 (button 5)</div>
+			</div>
+		</div>
+	</div> <br><br>
+	<div id="2Gamepad" hidden>
+		<div id="2GamepadSub" class="gamepad" hidden>
+			<div class="leftTriggers">
+				<div data-key="2Gamepad6" class="key">L2 (button 6)</div><br>
+				<div data-key="2Gamepad4" class="key">L1 (button 4)</div>
+			</div>
+			<div class="dpad">
+				<div data-key="2Gamepad12" class="key override">↑ (12)</div> <br>
+				<div data-key="2Gamepad15" class="key">← (15)</div>
+				<div data-key="2Gamepad14" class="key">→ (14)</div> <br>
+				<div data-key="2Gamepad13" class="key override">↓ (13)</div>
+			</div>
+			<div class="joystick">
+				<div data-key="2Gamepad10" class="key">L3 (10)</div>
+			</div>
+			<div class="menuButtons">
+				<div data-key="2Gamepad8" class="key">Select</div>
+				<div data-key="2Gamepad9" class="key">Start</div>
+			</div>
+			<div class="joystick">
+				<div data-key="2Gamepad11" class="key">R3 (11)</div>
+			</div>
+			<div class="buttons">
+				<div data-key="2Gamepad3" class="key override">Y (3)</div> <br>
+				<div data-key="2Gamepad2" class="key">X (2)</div>
+				<div data-key="2Gamepad1" class="key">B (1)</div> <br>
+				<div data-key="2Gamepad0" class="key override">A (0)</div>
+			</div>
+			<div class="rightTriggers">
+				<div data-key="2Gamepad7" class="key">R2 (button 7)</div> <br>
+				<div data-key="2Gamepad5" class="key">R1 (button 5)</div>
+			</div>
+		</div>
+	</div> <br><br>
+	<div id="3Gamepad" hidden>
+		<div id="3GamepadSub" class="gamepad" hidden>
+			<div class="leftTriggers">
+				<div data-key="3Gamepad6" class="key">L2 (button 6)</div><br>
+				<div data-key="3Gamepad4" class="key">L1 (button 4)</div>
+			</div>
+			<div class="dpad">
+				<div data-key="3Gamepad12" class="key override">↑ (12)</div> <br>
+				<div data-key="3Gamepad15" class="key">← (15)</div>
+				<div data-key="3Gamepad14" class="key">→ (14)</div> <br>
+				<div data-key="3Gamepad13" class="key override">↓ (13)</div>
+			</div>
+			<div class="joystick">
+				<div data-key="3Gamepad10" class="key">L3 (10)</div>
+			</div>
+			<div class="menuButtons">
+				<div data-key="3Gamepad8" class="key">Select</div>
+				<div data-key="3Gamepad9" class="key">Start</div>
+			</div>
+			<div class="joystick">
+				<div data-key="3Gamepad11" class="key">R3 (11)</div>
+			</div>
+			<div class="buttons">
+				<div data-key="3Gamepad3" class="key override">Y (3)</div> <br>
+				<div data-key="3Gamepad2" class="key">X (2)</div>
+				<div data-key="3Gamepad1" class="key">B (1)</div> <br>
+				<div data-key="3Gamepad0" class="key override">A (0)</div>
+			</div>
+			<div class="rightTriggers">
+				<div data-key="3Gamepad7" class="key">R2 (button 7)</div> <br>
+				<div data-key="3Gamepad5" class="key">R1 (button 5)</div>
+			</div>
+		</div>
+	</div> <br><br>
+	<footer>
+		Created by James Adams
+	</footer>
+</body>
+<script src="script.js"></script>
+</html>
